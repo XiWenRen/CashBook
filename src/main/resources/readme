@@ -1,0 +1,11 @@
+记账项目：
+1.User{"user_id","user_name","pass_word","email","mobile","total_cash","clock_time"}
+2.Bill{"bill_id","amount","consume_type","time","payment_type","remark","user_id","in_or_out"}
+3.Consume{"consume_id","consume_name"}
+
+MVC模式：
+M:module 对应数据层，包括数据库，在项目中就是实体类+获取数据的方法
+V:view 对应视图层，用来展示数据和处理相应操作
+C:controller 对应服务器控制层，用来相应前端post或get的请求，然后向数据层获取对应数据
+
+约定优于配置
