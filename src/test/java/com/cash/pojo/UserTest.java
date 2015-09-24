@@ -11,7 +11,7 @@ public class UserTest {
     public void createUser(){
         User user = new User();
         user.setUserId(0);
-        user.setUserName("���ǽ��");
+        user.setUserName("笨芸芸");
         user.setPassWord("ddxxyy150304");
         user.setEMail("qiaoranmengmei@126.com");
         user.setMobile("15221327109");

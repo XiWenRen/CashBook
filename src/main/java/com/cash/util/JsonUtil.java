@@ -17,13 +17,18 @@ public class JsonUtil {
 
     private static final String JSON_FILE_NAME = "src/test/resources/jsons/Users.json";
 
-    public static void addToJsonFile(User role) {
+    public static void addEle(User role) {
+        List<User> userList = getJson();
+        if (userList == null) {
+            userList = new ArrayList<>();
+        }
+        userList.add(role);
+        rewriteToJsonFile(userList);
+
+    }
+
+    private static void rewriteToJsonFile(List<User> userList) {
         try {
-            List<User> userList = getJson();
-            if (userList == null) {
-                userList = new ArrayList<>();
-            }
-            userList.add(role);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(JSON_FILE_NAME), "UTF-8"));
             String json = gson.toJson(userList);
             writer.write(json);
@@ -33,11 +38,45 @@ public class JsonUtil {
         }
     }
 
+    public static void deleteEle(int userId) {
+        List<User> userList = getJson();
+        if (userList == null || userList.size() == 0) {
+            return;
+        }
+
+        for (User user : userList) {
+            if (user.getUserId() == userId) {
+                userList.remove(user);
+                break;
+            }
+        }
+
+        rewriteToJsonFile(userList);
+    }
+
+    public static void updateEle(User user) {
+        List<User> userList = getJson();
+        if (userList == null || userList.size() == 0) {
+            System.out.println("这个用户没有注册");
+            return;
+        }
+
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).equals(user)) {
+                userList.set(i, user);
+                break;
+            }
+        }
+
+        rewriteToJsonFile(userList);
+    }
+
     public static List<User> getJson() {
         List<User> roleList = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(new File(JSON_FILE_NAME)));
-            roleList = gson.fromJson(reader, new TypeToken<List<User>>() {}.getType());
+            roleList = gson.fromJson(reader, new TypeToken<List<User>>() {
+            }.getType());
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
