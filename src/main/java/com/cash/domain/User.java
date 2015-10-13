@@ -1,4 +1,4 @@
-package com.cash.pojo;
+package com.cash.domain;
 
 import java.sql.Time;
 

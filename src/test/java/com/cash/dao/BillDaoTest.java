@@ -1,6 +1,6 @@
 package com.cash.dao;
 
-import com.cash.pojo.User;
+import com.cash.domain.User;
 
 /**
  * Created by MyPC on 2015/9/24.

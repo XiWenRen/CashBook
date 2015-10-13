@@ -1,8 +1,6 @@
 package com.cash.dao;
 
-import com.cash.pojo.Bill;
-import com.cash.pojo.User;
-import com.cash.util.JsonUtil;
+import com.cash.domain.Bill;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cash.dao.UserMapper">
+    <resultMap id="UserMap" type="User">
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="pass_word" property="passWord"/>
+        <result column="total_cash" property="totalCash"/>
+        <result column="e_mail" property="EMail"/>
+        <result column="mobile" property="mobile"/>
+        <result column="clock_time" property="clockTime"/>
+    </resultMap>
+
+    <select id="selectAllUser" resultMap="UserMap">
+        SELECT  * FROM CashBook.T_USER WHERE user_id = 1
+    </select>
+
+    <select id="login" parameterType="User" resultMap="UserMap">
+        SELECT * FROM CashBook.T_USER
+        WHERE user_name = #{userName}
+        AND pass_word = #{passWord}
+    </select>
+</mapper>

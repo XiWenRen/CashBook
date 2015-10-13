@@ -1,8 +1,7 @@
-package com.cash.pojo;
+package com.cash.domain;
 
 import org.junit.Test;
 
-import java.sql.Date;
 import java.sql.Time;
 
 public class UserTest {

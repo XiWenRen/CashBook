@@ -1,7 +1,7 @@
 package com.cash.dao;
 
-import com.cash.pojo.Consume;
-import com.cash.pojo.User;
+import com.cash.domain.Consume;
+import com.cash.domain.User;
 import com.cash.util.DBConnection;
 
 import java.sql.Connection;
@@ -37,12 +37,13 @@ public class ConsumeDao {
 
         try {
             conn = DBConnection.getConnection();
-            String sql = "select * from actor";
+            String sql = "SELECT  * FROM CashBook.T_USER WHERE user_id = 1";
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 User user = new User();
                 user.setUserName(rs.getString("user_id"));
+                user.setEMail(rs.getString(2));
                 System.out.println(rs.getString(1) + ";" + rs.getString(2) + ";" + rs.getString(3));
             }
         } catch (SQLException e) {

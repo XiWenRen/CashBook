@@ -1,6 +1,6 @@
 package com.cash.util;
 
-import com.cash.pojo.User;
+import com.cash.domain.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

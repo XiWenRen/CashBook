@@ -1,6 +1,6 @@
 package com.cash.dao;
 
-import com.cash.pojo.User;
+import com.cash.domain.User;
 import com.cash.util.JsonUtil;
 
 public class UserDao {

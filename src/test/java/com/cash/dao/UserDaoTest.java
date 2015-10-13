@@ -1,6 +1,6 @@
 package com.cash.dao;
 
-import com.cash.pojo.User;
+import com.cash.domain.User;
 import com.cash.util.JsonUtil;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.Test;
